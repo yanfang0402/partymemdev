@@ -1,0 +1,36 @@
+server:
+  # 端口号设置
+  port: 2020
+  # 编码设置
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+spring:
+  # 设置日期格式
+  mvc:
+    format:
+      date: yyyy-MM-dd
+
+  # 浏览器缓存
+  thymeleaf:
+    cache: false
+
+  # 加载国际化配置文件
+  messages:
+    basename: i18n.login
+
+  # 数据库配置
+  datasource:
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: sjtu.zrp.pojo
+  mapper-locations: classpath:mybatis/dao/*.xml
