@@ -20,17 +20,13 @@ spring:
   thymeleaf:
     cache: false
 
-  # 加载国际化配置文件
-  messages:
-    basename: i18n.login
-
   # 数据库配置
   datasource:
     username: root
     password:
-    url: jdbc:mysql://localhost:3306/test?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/partymemdev?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  type-aliases-package: sjtu.zrp.pojo
+  type-aliases-package: com.sjtu.pojo
   mapper-locations: classpath:mybatis/dao/*.xml

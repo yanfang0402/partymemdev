@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title th:text="#{login.title}"></title>
+		<title>党员发展管理系统</title>
 		<!-- Bootstrap core CSS -->
 		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 		<!-- Custom styles for this template -->
@@ -15,19 +15,19 @@
 	<body class="text-center">
 		<form class="form-signin" th:action="@{/user/login}">
 			<img class="mb-4" th:src="@{/img/bootstrap-solid.svg}" alt="" width="72" height="72">
-			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}"></h1>
-			<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
-			<input type="text" name="username" class="form-control" th:placeholder="#{login.username}" required="" autofocus="">
-			<input type="password" name="password" class="form-control" th:placeholder="#{login.password}" required="">
-			<div class="checkbox mb-3">
-				<label>
-          			<input type="checkbox" value="remember-me" th:text="#{login.remember}">
-        		</label>
+			<h1 class="h3 mb-3 font-weight-normal">欢迎使用交大党员发展管理系统</h1>
+			<p style="color: red">[[${registerMsg}]]</p>
+			<div class="form-check form-inline">
+				<label>学号：</label>
+				<input type="text" name="mId" class="form-control" required="" autofocus="">
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}"></button>
-			<p class="mt-5 mb-3 text-muted">© 2017-2018</p>
-			<a class="btn btn-sm" th:href="@{/index.html(l='zh_CN')}">中文</a>
-			<a class="btn btn-sm" th:href="@{/index.html(l='en_US')}">English</a>
+			<div class="form-check form-inline">
+				<label>密码：</label>
+				<input type="password" name="mPassword" class="form-control" required="">
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+			<a class="btn btn-lg btn-primary btn-block" href="/toRegisterMemberPage">注册</a>
+			<p class="mt-5 mb-3 text-muted">© 2020-2023</p>
 		</form>
 
 	</body>

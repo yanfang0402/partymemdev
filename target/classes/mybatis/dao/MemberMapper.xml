@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sjtu.dao.MemberMapper">
+
+    <insert id="insertMember" parameterType="Member">
+        insert into member (mId, mPassword, mLevel, mName, mClass, mGender, mNation, mNativePlace, mAdmissionTime, mIdCard, mPhone, mPlace, mFamilyPlace)
+        values (#{mId}, #{mPassword}, #{mLevel}, #{mName}, #{mClass}, #{mGender}, #{mNation}, #{mNativePlace}, #{mAdmissionTime}, #{mIdCard}, #{mPhone}, #{mPlace}, #{mFamilyPlace})
+    </insert>
+
+    <select id="selectMemeberByIdAndPassword" resultType="Member">
+        select * from member where mId = #{mId} and mPassword = #{mPassword}
+    </select>
+
+</mapper>

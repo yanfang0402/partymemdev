@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>党员发展管理系统-注册</title>
+		<!-- Bootstrap core CSS -->
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link th:href="@{/css/signin.css}" rel="stylesheet">
+	</head>
+
+	<body class="text-center">
+		<form class="form-signin" th:action="@{/user/register}">
+			<div class="form-check form-inline">
+				<p style="color: red" th:text="${registerMsg}" th:if="${not #strings.isEmpty(tag)}"></p>
+				<h1 class="h3 mb-3 font-weight-normal">请如实填写以下信息</h1>
+				<div class="form-check form-inline">
+					<label>学号：</label>
+					<input type="text" name="mId" class="form-control" required="" autofocus="" th:value="${member.getMId()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mId" class="form-control" required="" autofocus="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>密码：</label>
+					<input type="password" name="mPassword" class="form-control" required="">
+				</div>
+				<div class="form-check form-inline">
+					<label>确认：</label>
+					<input type="password" name="mPasswordConfirm" class="form-control" required="">
+				</div>
+				<input type="hidden" name="mLevel" value="0">
+				<div class="form-check form-inline">
+					<label>姓名：</label>
+					<input type="text" name="mName" class="form-control" required="" th:value="${member.getMName()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mName" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>班级：</label>
+					<input type="text" name="mClass" class="form-control" required="" th:value="${member.getMClass()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mClass" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>性别：</label>
+					<input type="radio" name="mGender" class="form-check-input" required="" th:value="男" th:checked="男" th:if="${not #strings.isEmpty(tag) and member.getMGender() eq '男'}">
+					<input type="radio" name="mGender" class="form-check-input" required="" th:value="男" th:if="${#strings.isEmpty(tag) or member.getMGender() eq '女'}">
+					<label>男</label>
+
+					<input type="radio" name="mGender" class="form-check-input" required="" th:value="女" th:checked="女" th:if="${not #strings.isEmpty(tag) and member.getMGender() eq '女'}">
+					<input type="radio" name="mGender" class="form-check-input" required="" th:value="女" th:if="${#strings.isEmpty(tag) or member.getMGender() eq '男'}">
+					<label>女</label>
+				</div>
+				<div class="form-check form-inline">
+					<label>民族：</label>
+					<input type="text" name="mNation" class="form-control" required="" th:value="${member.getMNation()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mNation" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>籍贯：</label>
+					<input type="text" name="mNativePlace" class="form-control" required="" th:value="${member.getMNativePlace()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mNativePlace" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>入校：</label>
+					<input type="date" name="mAdmissionTime" class="form-control" required="">
+				</div>
+				<div class="form-check form-inline">
+					<label>证号：</label>
+					<input type="text" name="mIdCard" class="form-control" required="" th:value="${member.getMIdCard()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mIdCard" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>电话：</label>
+					<input type="text" name="mPhone" class="form-control" required="" th:value="${member.getMPhone()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mPhone" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>住地：</label>
+					<input type="text" name="mPlace" class="form-control" required="" th:value="${member.getMPlace()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mPlace" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+				<div class="form-check form-inline">
+					<label>家庭：</label>
+					<input type="text" name="mFamilyPlace" class="form-control" required="" th:value="${member.getMFamilyPlace()}" th:if="${not #strings.isEmpty(tag)}">
+					<input type="text" name="mFamilyPlace" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+				</div>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+			<a class="btn btn-lg btn-primary btn-block" href="/index">返回</a>
+			<p class="mt-5 mb-3 text-muted">© 2020-2023</p>
+		</form>
+
+	</body>
+
+</html>
