@@ -16,10 +16,11 @@
 		<form class="form-signin" th:action="@{/user/login}">
 			<img class="mb-4" th:src="@{/img/bootstrap-solid.svg}" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal">欢迎使用交大党员发展管理系统</h1>
-			<p style="color: red">[[${registerMsg}]]</p>
+			<p style="color: red">[[${registerMsg}]][[${loginMsg}]]</p>
 			<div class="form-check form-inline">
 				<label>学号：</label>
-				<input type="text" name="mId" class="form-control" required="" autofocus="">
+				<input type="text" name="mId" class="form-control" required="" autofocus="" th:value="${mId}" th:if="${not #strings.isEmpty(tag)}">
+				<input type="text" name="mId" class="form-control" required="" autofocus="" th:if="${#strings.isEmpty(tag)}">
 			</div>
 			<div class="form-check form-inline">
 				<label>密码：</label>
