@@ -15,12 +15,11 @@
 	<body class="text-center">
 		<form class="form-signin" th:action="@{/user/register}">
 			<div class="form-check form-inline">
-				<p style="color: red" th:text="${registerMsg}" th:if="${not #strings.isEmpty(tag)}"></p>
+				<p style="color: red" th:text="${registerMsg}"></p>
 				<h1 class="h3 mb-3 font-weight-normal">请如实填写以下信息</h1>
 				<div class="form-check form-inline">
 					<label>学号：</label>
-					<input type="text" name="mId" class="form-control" required="" autofocus="" th:value="${member.getMId()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mId" class="form-control" required="" autofocus="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mId" class="form-control" required="" autofocus="" th:value="${mId}">
 				</div>
 				<div class="form-check form-inline">
 					<label>密码：</label>
@@ -33,33 +32,27 @@
 				<input type="hidden" name="mLevel" value="0">
 				<div class="form-check form-inline">
 					<label>姓名：</label>
-					<input type="text" name="mName" class="form-control" required="" th:value="${member.getMName()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mName" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mName" class="form-control" required="" th:value="${mName}">
 				</div>
 				<div class="form-check form-inline">
 					<label>班级：</label>
-					<input type="text" name="mClass" class="form-control" required="" th:value="${member.getMClass()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mClass" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mClass" class="form-control" required="" th:value="${mClass}">
 				</div>
 				<div class="form-check form-inline">
 					<label>性别：</label>
-					<input type="radio" name="mGender" class="form-check-input" required="" th:value="男" th:checked="男" th:if="${not #strings.isEmpty(tag) and member.getMGender() eq '男'}">
-					<input type="radio" name="mGender" class="form-check-input" required="" th:value="男" th:if="${#strings.isEmpty(tag) or member.getMGender() eq '女'}">
+					<input type="radio" name="mGender" class="form-check-input" required="" th:value="男" th:checked="${mGender}">
 					<label>男</label>
 
-					<input type="radio" name="mGender" class="form-check-input" required="" th:value="女" th:checked="女" th:if="${not #strings.isEmpty(tag) and member.getMGender() eq '女'}">
-					<input type="radio" name="mGender" class="form-check-input" required="" th:value="女" th:if="${#strings.isEmpty(tag) or member.getMGender() eq '男'}">
+					<input type="radio" name="mGender" class="form-check-input" required="" th:value="女" th:checked="${mGender}">
 					<label>女</label>
 				</div>
 				<div class="form-check form-inline">
 					<label>民族：</label>
-					<input type="text" name="mNation" class="form-control" required="" th:value="${member.getMNation()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mNation" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mNation" class="form-control" required="" th:value="${mNation}">
 				</div>
 				<div class="form-check form-inline">
 					<label>籍贯：</label>
-					<input type="text" name="mNativePlace" class="form-control" required="" th:value="${member.getMNativePlace()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mNativePlace" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mNativePlace" class="form-control" required="" th:value="${mNativePlace}">
 				</div>
 				<div class="form-check form-inline">
 					<label>入校：</label>
@@ -67,23 +60,19 @@
 				</div>
 				<div class="form-check form-inline">
 					<label>证号：</label>
-					<input type="text" name="mIdCard" class="form-control" required="" th:value="${member.getMIdCard()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mIdCard" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mIdCard" class="form-control" required="" th:value="${mIdCard}">
 				</div>
 				<div class="form-check form-inline">
 					<label>电话：</label>
-					<input type="text" name="mPhone" class="form-control" required="" th:value="${member.getMPhone()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mPhone" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mPhone" class="form-control" required="" th:value="${mPhone}">
 				</div>
 				<div class="form-check form-inline">
 					<label>住地：</label>
-					<input type="text" name="mPlace" class="form-control" required="" th:value="${member.getMPlace()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mPlace" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mPlace" class="form-control" required="" th:value="${mPlace}">
 				</div>
 				<div class="form-check form-inline">
 					<label>家庭：</label>
-					<input type="text" name="mFamilyPlace" class="form-control" required="" th:value="${member.getMFamilyPlace()}" th:if="${not #strings.isEmpty(tag)}">
-					<input type="text" name="mFamilyPlace" class="form-control" required="" th:if="${#strings.isEmpty(tag)}">
+					<input type="text" name="mFamilyPlace" class="form-control" required="" th:value="${mFamilyPlace}">
 				</div>
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>

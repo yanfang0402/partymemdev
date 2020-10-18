@@ -24,7 +24,6 @@ public class LoginConroller {
         } else {
             redirectAttributes.addFlashAttribute("loginMsg", "登录失败，学号不存在或密码错误");
             redirectAttributes.addFlashAttribute("mId", mId);
-            redirectAttributes.addFlashAttribute("tag", "here");
             return "redirect:/index";
         }
     }

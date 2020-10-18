@@ -23,8 +23,7 @@ public class RegisterController {
     public String registerMember(Member member, String mPasswordConfirm, RedirectAttributes redirectAttributes) {
         if (!mPasswordConfirm.equals(member.getMPassword())) {
             redirectAttributes.addFlashAttribute("registerMsg", "注册失败，两次输入的密码不一致，请重试");
-            redirectAttributes.addFlashAttribute("member", member);
-            redirectAttributes.addFlashAttribute("tag", "here");
+            returnRegisterInformation(member, redirectAttributes);
             return "redirect:/register";
         }
         try {
@@ -33,10 +32,22 @@ public class RegisterController {
             return "redirect:/index";
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("registerMsg", "注册失败，该学号已注册，请重试");
-            redirectAttributes.addFlashAttribute("member", member);
-            redirectAttributes.addFlashAttribute("tag", "here");
+            returnRegisterInformation(member, redirectAttributes);
             return "redirect:/register";
         }
+    }
+
+    private void returnRegisterInformation(Member member, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("mId", member.getMId());
+        redirectAttributes.addFlashAttribute("mName", member.getMName());
+        redirectAttributes.addFlashAttribute("mClass", member.getMClass());
+        redirectAttributes.addFlashAttribute("mGender", member.getMGender());
+        redirectAttributes.addFlashAttribute("mNation", member.getMNation());
+        redirectAttributes.addFlashAttribute("mNativePlace", member.getMNativePlace());
+        redirectAttributes.addFlashAttribute("mIdCard", member.getMIdCard());
+        redirectAttributes.addFlashAttribute("mPhone", member.getMPhone());
+        redirectAttributes.addFlashAttribute("mPlace", member.getMPlace());
+        redirectAttributes.addFlashAttribute("mFamilyPlace", member.getMFamilyPlace());
     }
 
 }
