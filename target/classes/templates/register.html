@@ -56,7 +56,7 @@
 				</div>
 				<div class="form-check form-inline">
 					<label>入校：</label>
-					<input type="date" name="mAdmissionTime" class="form-control" required="">
+					<input type="date" name="mAdmissionTime" class="form-control" required="" th:value="${#dates.format(mAdmissionTime, 'yyyy-MM-dd')}">
 				</div>
 				<div class="form-check form-inline">
 					<label>证号：</label>

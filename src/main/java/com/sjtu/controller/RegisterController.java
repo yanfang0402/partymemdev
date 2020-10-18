@@ -44,6 +44,7 @@ public class RegisterController {
         redirectAttributes.addFlashAttribute("mGender", member.getMGender());
         redirectAttributes.addFlashAttribute("mNation", member.getMNation());
         redirectAttributes.addFlashAttribute("mNativePlace", member.getMNativePlace());
+        redirectAttributes.addFlashAttribute("mAdmissionTime", member.getMAdmissionTime());
         redirectAttributes.addFlashAttribute("mIdCard", member.getMIdCard());
         redirectAttributes.addFlashAttribute("mPhone", member.getMPhone());
         redirectAttributes.addFlashAttribute("mPlace", member.getMPlace());
