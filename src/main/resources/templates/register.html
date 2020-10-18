@@ -8,77 +8,156 @@
 		<title>党员发展管理系统-注册</title>
 		<!-- Bootstrap core CSS -->
 		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
 		<!-- Custom styles for this template -->
 		<link th:href="@{/css/signin.css}" rel="stylesheet">
 	</head>
 
 	<body class="text-center">
-		<form class="form-signin" th:action="@{/user/register}">
-			<div class="form-check form-inline">
-				<p style="color: red" th:text="${registerMsg}"></p>
-				<h1 class="h3 mb-3 font-weight-normal">请如实填写以下信息</h1>
-				<div class="form-check form-inline">
-					<label>学号：</label>
-					<input type="text" name="mId" class="form-control" required="" autofocus="" th:value="${mId}">
-				</div>
-				<div class="form-check form-inline">
-					<label>密码：</label>
-					<input type="password" name="mPassword" class="form-control" required="">
-				</div>
-				<div class="form-check form-inline">
-					<label>确认：</label>
-					<input type="password" name="mPasswordConfirm" class="form-control" required="">
-				</div>
-				<input type="hidden" name="mLevel" value="0">
-				<div class="form-check form-inline">
-					<label>姓名：</label>
-					<input type="text" name="mName" class="form-control" required="" th:value="${mName}">
-				</div>
-				<div class="form-check form-inline">
-					<label>班级：</label>
-					<input type="text" name="mClass" class="form-control" required="" th:value="${mClass}">
-				</div>
-				<div class="form-check form-inline">
-					<label>性别：</label>
-					<input type="radio" name="mGender" class="form-check-input" required="" th:value="男" th:checked="${mGender}">
-					<label>男</label>
-
-					<input type="radio" name="mGender" class="form-check-input" required="" th:value="女" th:checked="${mGender}">
-					<label>女</label>
-				</div>
-				<div class="form-check form-inline">
-					<label>民族：</label>
-					<input type="text" name="mNation" class="form-control" required="" th:value="${mNation}">
-				</div>
-				<div class="form-check form-inline">
-					<label>籍贯：</label>
-					<input type="text" name="mNativePlace" class="form-control" required="" th:value="${mNativePlace}">
-				</div>
-				<div class="form-check form-inline">
-					<label>入校：</label>
-					<input type="date" name="mAdmissionTime" class="form-control" required="">
-				</div>
-				<div class="form-check form-inline">
-					<label>证号：</label>
-					<input type="text" name="mIdCard" class="form-control" required="" th:value="${mIdCard}">
-				</div>
-				<div class="form-check form-inline">
-					<label>电话：</label>
-					<input type="text" name="mPhone" class="form-control" required="" th:value="${mPhone}">
-				</div>
-				<div class="form-check form-inline">
-					<label>住地：</label>
-					<input type="text" name="mPlace" class="form-control" required="" th:value="${mPlace}">
-				</div>
-				<div class="form-check form-inline">
-					<label>家庭：</label>
-					<input type="text" name="mFamilyPlace" class="form-control" required="" th:value="${mFamilyPlace}">
+		<div class="header">
+			<div>
+				<a href="index.html" id="logo"><img src="images/GoldBird.png" width="300px" hight="300px" translatey="-50px" alt="logo"></a>
+				<ul>
+					<li>
+						<a href="main.html"><span>主页</span></a>
+					</li>
+					<li>
+						<a href="index.html"><span>页面1</span></a>
+					</li>
+					<li>
+						<a href=""><span>页面2</span></a>
+					</li>
+					<li>
+						<a href=""><span>页面3</span></a>
+					</li>
+					<li>
+						<a href=""><span>页面4</span></a>
+					</li>
+					<li>
+						<a href="contact.html"><span>页面5</span></a>
+					</li>
+				</ul>
+				<div>
+					<p>
+						<span>中国共产党成立</span> <span><span>83</span></span> <span>周年</span>
+					</p>
 				</div>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
-			<a class="btn btn-lg btn-primary btn-block" href="/index">返回</a>
-			<p class="mt-5 mb-3 text-muted">© 2020-2023</p>
-		</form>
+		</div>
+		<div class="body">
+			<div class="register">
+				<div>
+					<div>
+						<div class="register">
+							<h2 class="h3 mb-3 font-weight-normal">请如实填写您的注册信息</h2>
+							<form class="form-signin" th:action="@{/user/register}">
+								<div class="form-check form-inline">
+									<p style="color: red" th:text="${registerMsg}" th:if="${not #strings.isEmpty(tag)}"></p>
+									<table class="form-check form-inline">
+										<tr>
+											<td><label><span>您的学号</span></label></td>
+											<td>
+												<input type="text" name="mId" class="form-control" required="" autofocus="" th:value="${mId}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>请输入密码</span></label></td>
+											<td>
+												<input type="password" name="mPassword" class="form-control" required="">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>请确认密码</span></label></td>
+											<td>
+												<input type="password" name="mPasswordConfirm" class="form-control" required="">
+											</td>
+										</tr>
+										<tr>
+											<input type="hidden" name="mLevel" value="0">
+										</tr>
+										<tr>
+											<td><label><span>您的姓名</span></label></td>
+											<td>
+												<input type="text" name="mName" class="form-control" required="" th:value="${mName}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>您的班级</span></label></td>
+											<td>
+												<input type="text" name="mClass" class="form-control" required="" th:value="${mClass}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>您的性别</span></label></td>
+											<td>
+												<label for="male">
+													<input type="radio" name="mGender" class="form-check-input" id="male" required="" th:value="男" th:checked="${mGender}">
+													<span>男</span>
+												</label>
+												<label for="female">
+													<input type="radio" name="mGender" class="form-check-input" id="female" required="" th:value="女"
+													 th:checked="${mGender}">
+													<span>女</span>
+												</label>
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>您的民族</span></label></td>
+											<td>
+												<input type="text" name="mNation" class="form-control" required="" th:value="${mNation}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>您的籍贯</span></label></td>
+											<td>
+												<input type="text" name="mNativePlace" class="form-control" required="" th:value="${mNativePlace}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>入校时间</span></label></td>
+											<td>
+												<input type="date" name="mAdmissionTime" class="form-control" required="">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>身份证号</span></label></td>
+											<td>
+												<input type="text" name="mIdCard" class="form-control" required="" th:value="${mIdCard}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>电话号码</span></label></td>
+											<td>
+												<input type="text" name="mPhone" class="form-control" required="" th:value="${mPhone}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>现居住地</span></label></td>
+											<td>
+												<input type="text" name="mPlace" class="form-control" required="" th:value="${mPlace}">
+											</td>
+										</tr>
+										<tr>
+											<td><label><span>家庭地址</span></label></td>
+											<td>
+												<input type="text" name="mFamilyPlace" class="form-control" required="" th:value="${mFamilyPlace}">
+											</td>
+										</tr>
+									</table>
+									<a href="/index.html">
+										<input class="btn btn-lg btn-primary btn-block" type="button" id="goback" value="返回">
+									</a>
+									<a>
+										<input class="btn btn-lg btn-primary btn-block" type="submit" id="submit" value="申请注册">
+									</a>
+									<p class="mt-5 mb-3 text-muted">© 2020-2023</p>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</body>
 
