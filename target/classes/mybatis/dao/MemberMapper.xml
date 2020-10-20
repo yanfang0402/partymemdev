@@ -13,4 +13,10 @@
         select * from member where mId = #{mId} and mPassword = #{mPassword}
     </select>
 
+    <update id="updateMember" parameterType="Member">
+        update member
+        set mPassword = #{mPassword}, mLevel = #{mLevel}, mName = #{mName}, mClass = #{mClass}, mGender = #{mGender}, mNation = #{mNation}, mNativePlace = #{mNativePlace}, mAdmissionTime = #{mAdmissionTime}, mIdCard = #{mIdCard}, mPhone = #{mPhone}, mPlace = #{mPlace}, mFamilyPlace = #{mFamilyPlace}
+        where mId = #{mId}
+    </update>
+
 </mapper>

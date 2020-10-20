@@ -15,4 +15,6 @@ public interface MemberMapper {
     //登录，查询对应成员信息
     Member selectMemeberByIdAndPassword(@PathVariable("mId") String mId, @PathVariable("mPassword") String mPassword);
 
+    //修改密码，更新对应成员信息
+    int updateMember(Member member) throws Exception;
 }

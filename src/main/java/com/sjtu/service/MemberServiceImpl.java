@@ -24,4 +24,9 @@ public class MemberServiceImpl implements MemberService{
     public Member selectMemeberByIdAndPassword(String mId, String mPassword) {
         return memberMapper.selectMemeberByIdAndPassword(mId, mPassword);
     }
+
+    @Override
+    public int updateMember(Member member) throws Exception {
+        return memberMapper.updateMember(member);
+    }
 }

@@ -10,4 +10,6 @@ public interface MemberService {
     //登录，查询对应成员信息
     Member selectMemeberByIdAndPassword(String mId, String mPassword);
 
+    //修改密码，更新对应成员信息
+    int updateMember(Member member) throws Exception;
 }
